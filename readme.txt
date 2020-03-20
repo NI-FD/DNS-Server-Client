@@ -1,7 +1,7 @@
 一年多前写的一个模拟dns多层级域名查询的代码
 client和server之间利用tcp和udp连接
 每个server需要单独开一个terminal来运行，模拟多主机
-细节看detail.pdf 
+细节看detail.pdf（For more details, please see "Detail.pdf"）
 
 1). Code(In the "Project" file)
 
