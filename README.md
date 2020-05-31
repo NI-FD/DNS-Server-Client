@@ -82,20 +82,20 @@ When performing UDP communication, we also should bind the Server’IP and socke
 - **Encode the DNS Packet into Buffer**  
 In the process of encoding DNS packet into buffer, we need to write some method to put 2 byte or 4 byte char into buffer. Since the domain name is not a fix length, we need to write another method to encode domain name into buffer, also we should write some method to change the format of domain and IP Address so that it can be caught and decoded by Wireshark.  
 For example:  
-domain: 北邮.教育.中国 à6北邮6教育6中国6 IP: 192.168.100.98 ——> c0a86462
+domain: 北邮.教育.中国 -> 6北邮6教育6中国6 IP: 192.168.100.98 ——> c0a86462
 
 - **Decode Buffer into DNS Packet**  
 In the process of decoding buffer into DNS packet, we need to write get2byte or get4byte method to put char into DNS packet. Since the domain name is not the fix length, we need to write another method to decode domain name into DNS packet, there are some methods to change the format of domain and IP Address and they can be understood by user.  
 For Example:  
-Domain:6北邮6教育6中国0à北邮.教育.中国  
+Domain:6北邮6教育6中国0 -> 北邮.教育.中国  
 IP: c0a86462 ——> 192.168.100.98
 
 - **File Operation**  
   - File Reading  
   The function is used to get the Resource Record by checking the domain name and type. In the TLD and Root server, it only need to match the Second Level Domain or Top Level Domain, so we have to write a method to split the domain name.  
   For Example:  
-  In the Root server: 北邮.教育.中国 à 中国  
-  In the TLD server: 北邮.教育.中国 à 教育.中国
+  In the Root server: 北邮.教育.中国 -> 中国  
+  In the TLD server: 北邮.教育.中国 -> 教育.中国
   
   - File Writing
   The function is used to write the resource record into the cache of the Local Server’ when get the correct record.
