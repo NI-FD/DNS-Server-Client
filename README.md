@@ -17,7 +17,7 @@ Linux environment and C language
 - The program run stably and support error handling, such as invalid command, missing parameters, the same name processing and blank characters.
 
 # Preliminary Design
-## Decomposition of functional modules
+## Decomposition of Functional Modules
 - Divide the tasks into 4 parts:
   - **TCP/UDP Communication**: In the project, TCP communication needs to be used between the client and the Local Server. UDP communication is used between the root side, TLD, 2LD, and the Local Server.
   - **Encode the DNS Packet into Buffer**: When the sender is ready to send a DNS packet, this module will be called to write the contents of the packet into the buffer.
@@ -26,3 +26,6 @@ Linux environment and C language
   
 ## Relationship and Interface Between the Modules
 - The sender will encode DNS packet to buffer and send the data to the receiver by using TCP or UDP communication. The receiver decodes DNS packet from buffer and use the File Operation to query the local database. Local server would have a cache to efficient the process.
+
+## Overall Flow Chart
+![image](IMG/flow_chart.png)
